@@ -3,5 +3,25 @@
 server:
   applicationConnectors:
     - type: http
-      port: 8080
+      port: 9050
+  adminConnectors:
+    - type: http
+      port: 9000
 
+# Database settings.
+database:
+  driverClass: org.h2.Driver
+  user: sa
+  password: sa
+  url: jdbc:h2:./target/movie
+  properties:
+          hibernate.dialect:  org.hibernate.dialect.H2Dialect
+          hibernate.hbm2ddl.auto: create
+
+# Logging settings -- to see hbm sql
+logging:
+ level: INFO
+ loggers:
+    server: DEBUG
+    org.hibernate.SQL:
+      level: DEBUG
