@@ -17,10 +17,11 @@ repositories {
 
 buildscript {
     repositories {
-        mavenCentral()
+        mavenLocal()
     }
     dependencies {
         classpath 'com.github.rholder:gradle-one-jar:1.0.4'
+
     }
 }
 
@@ -29,7 +30,10 @@ task wrapper(type: Wrapper) {
 }
 
 dependencies {
-    compile 'io.dropwizard:dropwizard-core:0.9.2'
+    compile ( 'io.dropwizard:dropwizard-core:0.9.2',
+            'com.h2database:h2:1.4.190',
+            'io.dropwizard:dropwizard-hibernate:0.9.2'
+    )
 }
 
 sourceSets {
